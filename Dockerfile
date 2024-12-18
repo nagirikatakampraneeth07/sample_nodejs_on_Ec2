@@ -1,12 +1,8 @@
-FROM amazonlinux
-MAINTAINER veera "nagirikatakampraneethmca@gmail.com"
+FROM node:16
+MAINTAINER veera "veera.narni232@gmail.com"
 COPY . /app
-WORKDIR app
-RUN sudo yum install curl -y \
-    source ~/.bash_profile \
-    nvm install node \
-    node -v \
-    npm -v \
-    npm install \
+WORKDIR /app
+RUN npm install -r package.json
+#ENTRYPOINT ["python"]
 EXPOSE 80
 CMD ["npm", "start"]
